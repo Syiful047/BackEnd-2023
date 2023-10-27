@@ -19,14 +19,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// method get
+// animal method get
 Route:: get('/animals', [AnimalController::class, 'index']);
 
-// method post
+// animal method post
 Route:: get('/animals', [AnimalController::class, 'store']);
 
-// method put
+// animal method put
 Route:: get('/animals/{id}', [AnimalController::class, 'update']);
 
-// method delete
+// animal method delete
 Route:: get('/animals/{id}', [AnimalController::class, 'destroy']);
+
+// student method post all
+Route::post('/students', [StudentController::class, 'store']);
