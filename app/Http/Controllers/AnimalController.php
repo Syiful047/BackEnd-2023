@@ -38,7 +38,7 @@ class AnimalController extends Controller
         $this->animals[$id] = $request->animals;
 
         // panggil methode index
-        $this->index;
+        $this->index();
     }
 
     // method untuk menghapus data hewan
@@ -48,6 +48,6 @@ class AnimalController extends Controller
         unset($this->animals[$id]);
 
         // panggil method index
-        $this->index;
+        $this->index();
     }
 }
