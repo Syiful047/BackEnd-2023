@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,20 +23,24 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // animal method get
 Route:: get('/animals', [AnimalController::class, 'index']);
-
 // animal method post
 Route:: get('/animals', [AnimalController::class, 'store']);
-
 // animal method put
 Route:: get('/animals/{id}', [AnimalController::class, 'update']);
-
 // animal method delete
 Route:: get('/animals/{id}', [AnimalController::class, 'destroy']);
 
 // studentcontroller
 // route untuk menapilkan mahasisawa all
-Route::get('/students', [StudentController::class, 'index']);
-Route::post('/students', [StudentController::class, 'store']);
-Route::put('/students/{id}', [StudentController::class, 'update']);
-Route::delete('/students/{id}', [StudentController::class, 'destroy']);
-Route::get('/students/{id}', [StudentController::class, 'show']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/students', [StudentController::class, 'index']);
+    Route::post('/students', [StudentController::class, 'store']);
+    Route::put('/students/{id}', [StudentController::class, 'update']);
+    Route::delete('/students/{id}', [StudentController::class, 'destroy']);
+    Route::get('/students/{id}', [StudentController::class, 'show']);
+});
+
+
+// membuat route untuk registrasi dan login
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
