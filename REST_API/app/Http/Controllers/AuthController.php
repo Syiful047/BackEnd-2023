@@ -30,7 +30,7 @@ class AuthController extends Controller
 
     // membuat fitur login
     public function login(Request $request) {
-        // menagkap input user
+        // menangkap input user
         $input = [
             'email' => $request->email,
             'password' => $request->password
