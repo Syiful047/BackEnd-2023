@@ -4,7 +4,7 @@
 // @hint - Gunakan Destructing Object
 
 // Impor semua method dari FruitController
-const FruitController = require("./FruitController.js");
+const FruitController = require("./controller/FruitController.js");
 
 // Refaktor variabel ke ES6 Variable dengan destructuring
 const { index, store, update, destroy } = FruitController;
